@@ -12,7 +12,9 @@
     <div class="navbar">
       <div class="navbar__container">
         <div class="navbar__left">
-          Blog
+          <%= link_to(root_path) do %>
+            <%= image_tag "logo.svg", width: 34 %>
+          <% end %>
         </div>
         <div class="navbar__right">
           <% if current_user %>
