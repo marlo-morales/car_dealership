@@ -34,7 +34,7 @@
 .form__control:valid ~ .form__label {
   top: -20px;
   font-size: 14px;
-  color: #31A6FC;
+  color: $color-primary;
 }
 
 .form__bar {
@@ -50,7 +50,7 @@
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #31A6FC;
+  background: $color-primary;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -87,7 +87,7 @@
 
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #31A6FC;
+    background: $color-primary;
   }
 
   to {
@@ -98,7 +98,7 @@
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: #31A6FC;
+    background: $color-primary;
   }
 
   to {
@@ -109,7 +109,7 @@
 
 @keyframes inputHighlighter {
   from {
-    background: #31A6FC;
+    background: $color-primary;
   }
 
   to {
