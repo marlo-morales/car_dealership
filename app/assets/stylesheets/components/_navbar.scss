@@ -1,0 +1,25 @@
+.navbar {
+  &__container {
+    max-width: 700px;
+    margin: 0 auto;
+
+    &::after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+
+  &__left {
+    width: 70%;
+    float: left;
+  }
+
+  &__right {
+    width: 30%;
+    float: left;
+    text-align: right;
+  }
+}

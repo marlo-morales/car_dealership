@@ -1,0 +1,13 @@
+.notification {
+  padding: 20px;
+  color: #FFF;
+  margin-bottom: 50px;
+
+  &__notice {
+    background-color: #93D752;
+  }
+
+  &__alert {
+    background-color: #E74949;
+  }
+}

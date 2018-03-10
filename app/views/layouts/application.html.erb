@@ -9,13 +9,28 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <div class="notification">
-        <%= msg %>
+    <div class="navbar">
+      <div class="navbar__container">
+        <div class="navbar__left">
+          Blog
+        </div>
+        <div class="navbar__right">
+          <% if current_user %>
+            <%= link_to(t("logout.text"), logout_path, data: { method: :delete }, class: "form__button form__button--danger") %>
+          <% else %>
+            <%= link_to(t("login.text"), login_path, class: "form__button form__button--primary") %>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
 
     <div class="container">
+      <% flash.each do |name, msg| %>
+        <div class="notification notification__<%= name %>">
+          <%= msg %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
