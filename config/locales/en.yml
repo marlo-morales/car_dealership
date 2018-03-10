@@ -30,7 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  new:
+    text: "New %{resource}"
+  edit:
+    text: "Edit"
+  delete:
+    text: "Delete"
+    confirm: "Do you really want to delete?"
+
   posts:
+    show:
+      delete_confirm: ""
     create:
       success: "Your post has been created"
     update:
