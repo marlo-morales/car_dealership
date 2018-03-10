@@ -14,7 +14,8 @@
     <% if local_assigns[:expand_body].presence %>
       <%= sanitize(post.body) %>
     <% else %>
-      <%= truncate(sanitize(post.body), length: 200, omission: "... Continue reading") %>
+      <%= truncate(sanitize(post.body), length: 200, omission: "...") %>
+      <%= link_to "Continue reading", post %>
     <% end %>
   </div>
 </div>
