@@ -30,6 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  site_name: "Blog"
+
   date:
     formats:
       short: "%b %d"
@@ -49,7 +51,8 @@ en:
       error: "Your username or password was invalid, try again"
   posts:
     show:
-      delete_confirm: ""
+      page_title: "%{prefix} - %{site_name}"
+      delete_confirm: "Do you really want to delete this post?"
     create:
       success: "Your post has been created"
     update:
