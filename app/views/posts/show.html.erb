@@ -1,4 +1,6 @@
-<%= link_to(t("edit.text"), edit_post_path(@post)) %>
-<%= link_to(t("delete.text"), @post, data: { method: :delete, confirm: t("delete.confirm") }) %>
+<% if current_user %>
+  <%= link_to(t("edit.text"), edit_post_path(@post)) %>
+  <%= link_to(t("delete.text"), @post, data: { method: :delete, confirm: t("delete.confirm") }) %>
+<% end %>
 
 <%= render @post, expand_body: true %>

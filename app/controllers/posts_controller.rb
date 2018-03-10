@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authorize, except: [:index, :show]
   before_action :fetch_post, only: [:show, :edit, :update, :destroy]
 
   def index
