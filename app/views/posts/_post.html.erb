@@ -1,0 +1,20 @@
+<div class="post">
+  <h2 class="post__title">
+    <% if local_assigns[:link_title].presence %>
+      <%= link_to(post.title, post) %>
+    <% else %>
+      <%= post.title %>
+    <% end %>
+  </h2>
+  <div class="post__meta">
+    <span class="post__meta-comments"><%= pluralize(post.comments.count, "Comment") %></span>
+    <span class="post__meta-author">Author: <%= post.author.name %></span>
+  </div>
+  <div class="post__body">
+    <% if local_assigns[:expand_body].presence %>
+      <%= sanitize(post.body) %>
+    <% else %>
+      <%= truncate(sanitize(post.body), length: 200, omission: "... Continue reading") %>
+    <% end %>
+  </div>
+</div>
