@@ -1,8 +1,10 @@
 <% page_title(@post.title) %>
 
 <% if current_user %>
-  <%= link_to(t("edit.text"), edit_post_path(@post)) %>
-  <%= link_to(t("delete.text"), @post, data: { method: :delete, confirm: t("delete.confirm") }) %>
+  <div class="form__actions">
+    <%= link_to(t("edit.text"), edit_post_path(@post), class: "form__button form__button--primary") %>
+    <%= link_to(t("delete.text"), @post, data: { method: :delete, confirm: t("delete.confirm") }, class: "form__button form__button--danger") %>
+  </div>
 <% end %>
 
 <%= render @post, expand_body: true %>
