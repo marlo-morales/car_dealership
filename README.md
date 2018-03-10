@@ -4,7 +4,11 @@ Make sure you read all of this document, and follow any guidelines in it. We rec
 
 ## Background
 
+We had an intern start building our new company blog. There are a few issues we need to resolve before we can consider using the blog. We also need to add the ability for someone to comment on a post.
+
 ## Requirements
+
+* Ruby (check `.ruby-version` for the version required)
 
 ## Getting Started
 
@@ -21,20 +25,23 @@ To setup the project ensure you have the prerequisites installed then simply run
 bin/setup
 ```
 
-Once setup is complete, you can run the services using overmind or by running each of the services from the `Procfile` manually.
+once setup is complete, run
 
 ```
-overmind start
+bin/rails server
 ```
 
-## Testing
-
-```
-bin/rspec
-```
+alternatively you can run using Foreman, Overmind or similar.
 
 ## Submitting The Challenge
 
+In your project directory, run:
+
+```
+tar -czvf code_challenge.tar.gz .
+```
+
+Provide it to the interviewer before the end of the call.
 
 ## What We Care About
 
