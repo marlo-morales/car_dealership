@@ -49,6 +49,10 @@ en:
     create:
       success: "You have successfully logged in"
       error: "Your username or password was invalid, try again"
+    destroy:
+      success: "You have been logged out"
+  logout:
+    text: "Logout"
   posts:
     show:
       page_title: "%{prefix} - %{site_name}"

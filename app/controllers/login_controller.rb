@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-  before_action :only_for_anonymous
+  before_action :only_for_anonymous, except: :destroy
 
   def new; end
 
@@ -11,6 +11,11 @@ class LoginController < ApplicationController
     else
       redirect_to login_path, alert: t(".error")
     end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path, notice: t(".success")
   end
 
   private
