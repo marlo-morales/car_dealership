@@ -34,9 +34,9 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to posts_path, notice: t(".success")
+      redirect_to root_path, notice: t(".success")
     else
-      redirect_to posts_path, alert: t(".error")
+      redirect_to root_path, alert: t(".error")
     end
   end
 
