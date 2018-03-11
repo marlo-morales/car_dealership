@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :fetch_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.ordered
+    @posts = policy_scope(Post).ordered
   end
 
   def show; end
@@ -25,9 +25,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @post, :update?
+  end
 
   def update
+    authorize @post, :update?
     if @post.update(permitted_params)
       redirect_to @post, notice: t(".success")
     else
@@ -36,6 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post, :update?
     if @post.destroy
       redirect_to root_path, notice: t(".success")
     else
@@ -47,7 +51,6 @@ class PostsController < ApplicationController
 
   def fetch_post
     @post = Post.find(params[:id])
-    authorize @post, :update?
   end
 
   def permitted_params

@@ -16,8 +16,13 @@ gem "pundit"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara", "~> 2.13"
+  gem "database_cleaner"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "capybara"
   gem "selenium-webdriver"
+  gem "fuubar"
+  gem "simplecov", require: false
 end
 
 group :development do

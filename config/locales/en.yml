@@ -32,6 +32,9 @@
 en:
   site_name: "Blog"
 
+  login_required: "You need to login"
+  unauthorized: "You do not have correct permission"
+
   date:
     formats:
       short: "%b %d"
