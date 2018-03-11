@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authorize, except: [:index, :show]
+  before_action :login_required, except: [:index, :show]
   before_action :fetch_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,11 +10,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post, :create?
   end
 
   def create
     @post = Post.new(permitted_params)
     @post.author = current_user
+    authorize @post, :create?
 
     if @post.save
       redirect_to @post, notice: t(".success")
@@ -45,6 +47,7 @@ class PostsController < ApplicationController
 
   def fetch_post
     @post = Post.find(params[:id])
+    authorize @post, :update?
   end
 
   def permitted_params
