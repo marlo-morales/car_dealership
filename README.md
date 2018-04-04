@@ -2,6 +2,8 @@
 
 Make sure you read all of this document, and follow any guidelines in it. We recommend you pay particular attention to the "What We Care About" section.
 
+To keep things fair we ask that you do not publish this code or your completed version anywhere, thanks.
+
 ## Background
 
 We had an intern start building our new company blog. There are a few issues we need to resolve before we can consider using the blog. We also have a few feature requests below.
