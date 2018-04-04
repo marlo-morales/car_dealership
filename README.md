@@ -4,7 +4,7 @@ Make sure you read all of this document, and follow any guidelines in it. We rec
 
 ## Background
 
-We had an intern start building our new company blog. There are a few issues we need to resolve before we can consider using the blog. We also need to add the ability for someone to comment on a post.
+We had an intern start building our new company blog. There are a few issues we need to resolve before we can consider using the blog. We also have a few feature requests below.
 
 ## Requirements
 
@@ -35,13 +35,10 @@ alternatively you can run using Foreman, Overmind or similar.
 
 ## Submitting The Challenge
 
-In your project directory, run:
+Please create a PR for the following milestones, then merge your PR to continue.
 
-```
-tar -czvf code_challenge.tar.gz .
-```
-
-Provide it to the interviewer before the end of the call.
+1. Getting the application up and running.
+1. Each production ready feature.
 
 ## What We Care About
 
@@ -56,3 +53,10 @@ Here is what you should aim for with your code:
 * **Security** Are there any obvious vulnerabilities?
 
 * **Testing** How thorough are the automated tests? Will they be difficult to change if the requirements of the application were to change? Are there some unit and some integration tests? What kinds of tests did you focus on?
+
+## Feature Wishlist
+
+* Add editor to form for post content
+* Add ability for someone to be able to comment on a post
+* Add ability to tag posts
+* Add the ability to search for a post
