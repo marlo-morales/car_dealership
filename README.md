@@ -6,9 +6,21 @@ To keep things fair we ask that you do not publish this code or your completed v
 
 ## Background
 
-We had an intern start building our new company blog. There are a few issues we need to resolve before we can consider using the blog. We also have a few feature requests below.
+We had an intern start building our new blog which will offer a teaser of information before expecting users to pay to continue reading the content. There are a number of features we need implemented to consider this a minimum viable product.
 
-## Requirements
+The features we require to be completed are:
+
+* Allow posts to be tagged.
+* Allow someone to be able to comment on a post and reply to a comment using AJAX.
+* Show a preview of the post, asking the user to purchase access to the full post using Stripe.
+
+The features we wouldn't mind if you have some spare time, but aren't required are:
+
+* Allow someone to react to a comment like Facebook.
+* Ability to search for a post by author, keywords and tags.
+* When writing a blog post, a user should be able to add basic formatting to the post.
+
+## Prerequisites
 
 * Ruby (check `.ruby-version` for the version required)
 
@@ -37,10 +49,8 @@ alternatively you can run using Foreman, Overmind or similar.
 
 ## Submitting The Challenge
 
-Please create a PR for the following milestones, then merge your PR to continue.
-
-1. Getting the application up and running.
-1. Each production ready feature.
+1. Please create a PR for each feature, then
+1. merge your PR and continue working on the next feature.
 
 ## What We Care About
 
@@ -55,10 +65,3 @@ Here is what you should aim for with your code:
 * **Security** Are there any obvious vulnerabilities?
 
 * **Testing** How thorough are the automated tests? Will they be difficult to change if the requirements of the application were to change? Are there some unit and some integration tests? What kinds of tests did you focus on?
-
-## Feature Wishlist
-
-* Add editor to form for post content
-* Add ability for someone to be able to comment on a post
-* Add ability to tag posts
-* Add the ability to search for a post
