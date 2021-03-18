@@ -1,5 +1,5 @@
-.post {
-  &.post--border {
+.car {
+  &.car--border {
     -webkit-box-shadow: rgba(0, 0, 0, 0.0392157) 0px 1px 4px 0px;
     box-shadow: rgba(0, 0, 0, 0.0392157) 0px 1px 4px 0px;
     border-color: rgba(0, 0, 0, 0.0901961);
@@ -10,9 +10,9 @@
     border-width: 1px;
   }
 
-  &.post--border &__title > a:hover,
-  &.post--border &__body,
-  &.post--border &__continue {
+  &.car--border &__title > a:hover,
+  &.car--border &__body,
+  &.car--border &__continue {
     cursor: pointer;
   }
 

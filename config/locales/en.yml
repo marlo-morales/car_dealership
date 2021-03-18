@@ -30,7 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  site_name: "Blog"
+  site_name: "Dodgy Brothers"
 
   login_required: "You need to login"
   unauthorized: "You do not have correct permission"
@@ -38,8 +38,17 @@ en:
   date:
     formats:
       short: "%b %d"
-  new:
-    text: "New %{resource}"
+
+  cars:
+    list: "List Car"
+    select_year: "Select Year"
+    select_condition: "Select Condition"
+    thank_you: "Thank you very much, %{seller_name}!"
+    submit_success: "Your car \"%{make} %{model} %{year} (%{condition})\" with a price of %{price_with_currency} has been successfully submitted."
+    take_note_html: "Please take note of your listing ID <u>%{id}</u> for future reference."
+    redirect_to_home: "You will be redirected to home page..."
+    save_failed: "Listing your car failed because of the following: %{errors}"
+
   edit:
     text: "Edit"
   delete:
@@ -56,14 +65,13 @@ en:
       success: "You have been logged out"
   logout:
     text: "Logout"
-  posts:
-    show:
-      page_title: "%{prefix} - %{site_name}"
-      delete_confirm: "Do you really want to delete this post?"
-    create:
-      success: "Your post has been created"
-    update:
-      success: "Your post has been updated"
-    destroy:
-      success: "Your post has been removed"
-      error: "Your post could not be removed"
+
+  activerecord:
+    attributes:
+      car:
+        seller: "Seller information"
+
+  activerecord:
+    errors:
+      messages:
+        taken: "must be unique base on Make, Year, Condition, and Price"

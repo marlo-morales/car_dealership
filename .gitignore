@@ -26,3 +26,4 @@ Procfile
 
 /coverage
 /spec/examples.txt
+/vendor/bundle

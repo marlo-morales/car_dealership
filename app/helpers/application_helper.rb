@@ -10,4 +10,14 @@ module ApplicationHelper
 
     content_for(:page_title, title)
   end
+
+  def format_flash_errors(errors)
+    return if errors.blank?
+
+    if errors.is_a?(Array)
+      "<br/> * #{errors.join("<br/> * ")}"
+    else
+      "<br/> * #{errors}"
+    end
+  end
 end

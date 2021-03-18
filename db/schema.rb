@@ -10,20 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310083657) do
+ActiveRecord::Schema.define(version: 2021_03_18_031127) do
 
-  create_table "comments", force: :cascade do |t|
-    t.text "body"
-    t.integer "author_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.integer "author_id"
+  create_table "cars", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.integer "condition"
+    t.integer "price"
+    t.integer "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,10 +26,11 @@ ActiveRecord::Schema.define(version: 20180310083657) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "mobile_number"
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

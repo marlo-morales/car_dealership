@@ -1,8 +1,9 @@
 FactoryBot.define do
-  factory :user, aliases: [:author] do
-    first_name { "John" }
+  factory :user, aliases: [:seller] do
+    first_name { "Mike" }
     last_name { "Smith" }
-    username { "john.smith" }
+    mobile_number { "1234567890" }
+    username { "mike.smith" }
     password { "Password123" }
   end
 end

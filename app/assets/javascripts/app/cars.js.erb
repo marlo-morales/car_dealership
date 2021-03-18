@@ -1,0 +1,9 @@
+document.addEventListener("DOMContentLoaded", function(){
+  var carForm = document.getElementById("car_form")
+
+  if (location.pathname == "/cars" && !carForm) {
+    setTimeout(function(){
+      window.location.href = "/"
+    }, 10_000)
+  }
+})

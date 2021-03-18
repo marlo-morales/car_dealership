@@ -1,0 +1,54 @@
+<%= form_with(model: object, local: true, id: :car_form) do |form| %>
+  <div class="form__field <%= field_with_errors(object&.seller&.errors, :username) %>">
+    <%= form.email_field nil, name: "car[seller][email]", value: object&.seller&.username, id: :car_seller_email, class: "form__control", autofocus: true %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :seller_email, class: "form__label" %>
+  </div>
+  <div class="form__field <%= field_with_errors(object&.seller&.errors, :first_name) %>">
+    <%= form.text_field nil, name: "car[seller][name]", value: object&.seller&.name, class: "form__control", required: true %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :seller_name, class: "form__label" %>
+  </div>
+  <div class="form__field <%= field_with_errors(object&.seller&.errors, :mobile_number) %>">
+    <%= form.phone_field nil, name: "car[seller][mobile_number]", value: object&.seller&.mobile_number, class: "form__control", required: true %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :seller_mobile_number, class: "form__label" %>
+  </div>
+  <div class="form__field">
+    <%= form.text_field :make, class: "form__control", required: true %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :make, class: "form__label" %>
+  </div>
+  <div class="form__field">
+    <%= form.text_field :model, class: "form__control", required: true %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :model, class: "form__label" %>
+  </div>
+  <div class="form__field">
+    <%= year_select(options: { value: object.year, discard_type: true, prefix: "", prompt: "" }, html_options: { id: :car_year, name: "car[year]" }) %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :year, class: "form__label" %>
+  </div>
+  <div class="form__field">
+    <%= condition_select(form, html_options: { include_blank: t("cars.select_condition") }) %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :condition, class: "form__label" %>
+  </div>
+  <div class="form__field">
+    <%= form.number_field :price, class: "form__control", required: true, min: 1_000 %>
+    <span class="form__highlight"></span>
+    <span class="form__bar"></span>
+    <%= form.label :price, class: "form__label" %>
+  </div>
+  <div class="form__actions">
+    <%= form.submit class: "form__button form__button--primary" %>
+    <%= link_to t("cancel.text"), root_path, class: "form__button form_button--secondary" %>
+  </div>
+<% end %>

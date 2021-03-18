@@ -27,24 +27,10 @@ def create_posts_for(user)
   end
 end
 
-puts "== Creating Steven Hays =="
-user1 = User.find_or_initialize_by(username: "steven").tap do |u|
-  u.first_name = "Steven"
-  u.last_name = "Hays"
-  u.password = "Password123"
+puts "== Creating Iron Mike =="
+user1 = User.find_or_initialize_by(username: "mike@example.org").tap do |u|
+  u.first_name = "Iron"
+  u.last_name = "Mike"
+  u.password = "mikeymike123"
   u.save
 end
-
-puts "== Publishing for Steven Hays =="
-create_posts_for(user1)
-
-puts "== Creating Kimberly Green =="
-user2 = User.find_or_initialize_by(username: "kim").tap do |u|
-  u.first_name = "Kimberly"
-  u.last_name = "Green"
-  u.password = "Password123"
-  u.save
-end
-
-puts "== Publishing for Kimberly Green =="
-create_posts_for(user2)

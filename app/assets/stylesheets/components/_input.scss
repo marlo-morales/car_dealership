@@ -68,6 +68,15 @@
   width: 50%;
 }
 
+.field_with_errors {
+  .form__control {
+    border-bottom-color: $color-danger;
+  }
+  .form__label {
+    color: $color-danger;
+  }
+}
+
 .form__highlight {
   position: absolute;
   height: 60%;

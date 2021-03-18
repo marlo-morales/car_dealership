@@ -13,7 +13,7 @@
       <div class="navbar__container">
         <div class="navbar__left">
           <%= link_to(root_path) do %>
-            <%= image_tag "logo.svg", width: 34 %>
+            <%= image_tag "logo.svg", width: 100 %>
           <% end %>
         </div>
         <div class="navbar__right">
@@ -29,7 +29,7 @@
     <div class="container">
       <% flash.each do |name, msg| %>
         <div class="notification notification__<%= name %>">
-          <%= msg %>
+          <%= msg.html_safe %>
         </div>
       <% end %>
 
