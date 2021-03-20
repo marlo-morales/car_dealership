@@ -30,7 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  site_name: "Dodgy Brothers"
+  site:
+    name: "Dodgy Brothers"
+    welcome: "Welcome to Dodgy Brothers Online Cars!"
+    get_started: "To get started on selling cars, click the button below."
 
   login_required: "You need to login"
   unauthorized: "You do not have correct permission"

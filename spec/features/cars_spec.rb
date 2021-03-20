@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Cars", type: :feature do
-  let(:helpers) { ApplicationController.helpers }
-
   before do
     visit root_path
 
@@ -40,9 +38,9 @@ RSpec.describe "Cars", type: :feature do
     expect(page).to have_text I18n.t(
       "cars.submit_success",
       make: car.make, model: car.model, year: car.year,
-      condition: car.condition.titleize, price_with_currency: helpers.number_to_currency(car.price)
+      condition: car.condition.titleize, price_with_currency: app_helpers.number_to_currency(car.price)
     )
-    expect(page).to have_text helpers.strip_tags(I18n.t("cars.take_note_html", id: car.id))
+    expect(page).to have_text app_helpers.strip_tags(I18n.t("cars.take_note_html", id: car.id))
   end
 
   scenario "Incomplete form" do

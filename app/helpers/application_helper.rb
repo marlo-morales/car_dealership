@@ -4,20 +4,10 @@ module ApplicationHelper
     title = t(
       key,
       prefix: prefix,
-      site_name: t("site_name"),
-      default: :site_name
+      site_name: t("site.name"),
+      default: t("site.name")
     )
 
     content_for(:page_title, title)
-  end
-
-  def format_flash_errors(errors)
-    return if errors.blank?
-
-    if errors.is_a?(Array)
-      "<br/> * #{errors.join("<br/> * ")}"
-    else
-      "<br/> * #{errors}"
-    end
   end
 end
