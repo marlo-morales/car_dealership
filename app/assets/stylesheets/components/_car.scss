@@ -1,4 +1,6 @@
 .car {
+  position: relative;
+
   &.car--border {
     -webkit-box-shadow: rgba(0, 0, 0, 0.0392157) 0px 1px 4px 0px;
     box-shadow: rgba(0, 0, 0, 0.0392157) 0px 1px 4px 0px;
@@ -10,7 +12,7 @@
     border-width: 1px;
   }
 
-  &__meta, &__meta-created, &__continue {
+  &__meta, &__meta-created, &__continue, &__actions {
     color: $color-secondary;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 13px;
@@ -25,6 +27,7 @@
   &__meta-created {
     float: right;
     font-size: 11px;
+    text-align: right;
   }
 
   &__meta-divider {
@@ -76,6 +79,28 @@
     }
   }
 
+  &__computation {
+    font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    td, th {
+      border: 1px solid #DDD;
+      padding: 8px;
+      text-align: right;
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+    }
+    tr:hover {
+      background-color: #4CAF50;
+      color: #FFF;
+    }
+  }
+
   &__continue {
     color: $color-secondary;
     display: block;
@@ -92,9 +117,69 @@
   }
 
   &__actions {
-    color: $color-secondary;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 14px;
     float: right;
+  }
+
+  &__buy--form {
+    border-top: unset !important;
+    margin-top: 0 !important;
+    padding-top: 35px !important;
+  }
+  
+  &__sold {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: -1;
+
+    &--text {
+      left: 15px;
+      top: 15px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      display: block;
+      width: 210px;
+      padding: 5px 0;
+      background-color: $color-danger;
+      box-shadow: 0 3px 1px rgba(0, 0, 0, 0.192);
+      color: #fff;
+      text-shadow: 0 2px 2px rgba(0,0,0,.2);
+      text-transform: uppercase;
+      text-align: center;
+      border: 1px dotted #fff;
+      outline: 3px solid $color-danger;
+      font-weight: 500;
+    }
+
+    &::before {
+      top: 0;
+      left: 64px;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid $color-danger;
+      box-sizing: content-box;
+    }
+
+    &::after {
+      bottom: 64px;
+      right: 0;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid $color-danger;
+    }
   }
 }

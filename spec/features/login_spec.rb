@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Login", type: :feature do
   context "for User Story 3" do
-    let!(:user) { create(:user) }
+    let!(:user) { create(:user, admin: true) }
 
     before do
       visit root_path
@@ -18,7 +18,7 @@ RSpec.describe "Login", type: :feature do
 
     scenario "when successfully logged in" do
       fill_in "username", with: user.username
-      fill_in "password", with: "Password123"
+      fill_in "password", with: "mikeymike123"
       click_button "Login"
 
       expect(current_path).to eq(root_path)
@@ -29,7 +29,7 @@ RSpec.describe "Login", type: :feature do
     context "for login failure" do
       scenario "when username is incorrect" do
         fill_in "username", with: "foobar"
-        fill_in "password", with: "Password123"
+        fill_in "password", with: "mikeymike123"
         click_button "Login"
 
         expect(current_path).to eq(login_path)
@@ -48,7 +48,7 @@ RSpec.describe "Login", type: :feature do
 
     scenario "when successfully logged out" do
       fill_in "username", with: user.username
-      fill_in "password", with: "Password123"
+      fill_in "password", with: "mikeymike123"
       click_button "Login"
       click_link "Logout"
 
