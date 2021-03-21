@@ -1,9 +1,32 @@
-document.addEventListener("DOMContentLoaded", function(){
-  var carForm = document.getElementById("car_form")
+var $ = document;
+
+function changeFilter(path, key, value) {
+  var urlParams = new URLSearchParams(window.location.search)
+  key = key.toString()
+  value = value.toString()
+  if (urlParams.has("page")) urlParams.delete("page")
+
+  if (urlParams.has(key)) {
+    if (value != "") {
+      urlParams.set(key, value)
+    } else {
+      urlParams.delete(key)
+    }
+  } else {
+    urlParams.append(key, value)
+  }
+
+  window.location.href = path + "?" + urlParams.toString()
+}
+
+function goToRootPath() {
+  window.location.href = "/"
+}
+
+$.addEventListener("DOMContentLoaded", function() {
+  var carForm = $.getElementById("car_form")
 
   if (location.pathname == "/cars" && !carForm) {
-    setTimeout(function(){
-      window.location.href = "/"
-    }, 10_000)
+    setTimeout(goToRootPath, 10_000)
   }
 })

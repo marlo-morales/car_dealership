@@ -18,7 +18,7 @@
     <%= form.label :seller_mobile_number, class: "form__label" %>
   </div>
   <div class="form__field">
-    <%= form.text_field :make, class: "form__control", required: true %>
+    <%= form.select :make, options_for_makes(object.make), {}, { class: "form__control", required: true } %>
     <span class="form__highlight"></span>
     <span class="form__bar"></span>
     <%= form.label :make, class: "form__label" %>
@@ -49,6 +49,6 @@
   </div>
   <div class="form__actions">
     <%= form.submit class: "form__button form__button--primary" %>
-    <%= link_to t("cancel.text"), root_path, class: "form__button form_button--secondary" %>
+    <%= link_to t("cancel.text"), root_path, class: "form__button form__button--secondary" %>
   </div>
 <% end %>

@@ -32,8 +32,9 @@
 en:
   site:
     name: "Dodgy Brothers"
-    welcome: "Welcome to Dodgy Brothers Online Cars!"
-    get_started: "To get started on selling cars, click the button below."
+    welcome: "Welcome to Dodgy Brothers Car Dealership!"
+    recent_cars: "Checkout our most recent cars below..."
+    get_started: "To get started on selling cars, click List Car."
 
   login_required: "You need to login"
   unauthorized: "You do not have correct permission"
@@ -51,6 +52,13 @@ en:
     take_note_html: "Please take note of your listing ID <u>%{id}</u> for future reference."
     redirect_to_home: "You will be redirected to home page..."
     save_failed: "Listing your car failed because of the following: %{errors}"
+    description: "This car is in %{condition} condition with a price of %{price_with_currency}"
+    filter:
+      by: "Filter by"
+      make: "Make"
+      year: "Year"
+      submit: "Submit"
+      clear: "Clear"
 
   edit:
     text: "Edit"
@@ -78,3 +86,9 @@ en:
     errors:
       messages:
         taken: "must be unique base on Make, Year, Condition, and Price"
+
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No results found for your filter"

@@ -6,27 +6,25 @@
     border-style: solid;
     border-radius: 3px;
     margin-top: 20px;
-    padding: 20px 20px 40px;
+    padding: 20px 20px 15px;
     border-width: 1px;
   }
 
-  &.car--border &__title > a:hover,
-  &.car--border &__body,
-  &.car--border &__continue {
-    cursor: pointer;
-  }
-
-  &__meta-author, &__meta-published, &__meta-comments, &__continue {
-    color: rgba(0, 0, 0, 0.482353);
+  &__meta, &__meta-created, &__continue {
+    color: $color-secondary;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 13px;
     line-height: 21px;
     text-decoration: none;
   }
 
-  &__meta-author {
+  &__meta-seller {
     color: $color-primary;
-    display: block;
+  }
+
+  &__meta-created {
+    float: right;
+    font-size: 11px;
   }
 
   &__meta-divider {
@@ -45,18 +43,18 @@
 
   &__title {
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    margin-top: 0;
 
     & > a {
       text-decoration: none;
       color: rgba(0, 0, 0, 0.843137);
       font-size: 30px;
       line-height: 31px;
-      padding-top: 5px;
       display: block;
     }
   }
 
-  &__body {
+  &__description {
     color: rgba(0, 0, 0, 0.843137);
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 18px;
@@ -79,7 +77,7 @@
   }
 
   &__continue {
-    color: rgba(0, 0, 0, 0.482353);
+    color: $color-secondary;
     display: block;
     text-decoration: none;
     margin-top: 10px;
