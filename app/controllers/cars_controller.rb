@@ -1,7 +1,10 @@
 class CarsController < ApplicationController
   include ErrorsHelper
 
-  def index; end
+  def index
+    cars = Car.recent.includes(:seller)
+    @cars = Kaminari.paginate_array(filter(cars)).page(params[:page]).per(10)
+  end
 
   def new
     @car = Car.new
@@ -30,5 +33,11 @@ class CarsController < ApplicationController
 
   def assign_seller!
     @car.seller = User.find_or_build_by(permitted_params[:seller])
+  end
+
+  def filter(cars)
+    cars = cars.where("LOWER(make) = ?", params[:make]&.downcase) if params[:make].present?
+    cars = cars.where(year: params[:year]) if params[:year].present?
+    cars
   end
 end

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates_presence_of :username, :first_name, :mobile_number
   validates_uniqueness_of :username, scope: %i(first_name last_name)
 
+  alias_attribute :email, :username
+
   def name
     "#{first_name} #{last_name}"
   end

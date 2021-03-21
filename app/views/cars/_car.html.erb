@@ -1,0 +1,16 @@
+<div class="car <%= "car--border" if action_name == "index" %>">
+  <h3 class="car__title">
+    <span class="car__meta-created"><%= l(car.created_at.to_date, format: :long) %></span>
+    <%= car.title %>
+  </h2>
+  <div class="car__meta">
+    <span class="car__meta-seller"><%= car.seller.name %></span>
+    <span class="car__meta-divider"></span>
+    <span class="car__meta-mobile-number"><%= car.seller.mobile_number %></span>
+    <span class="car__meta-divider"></span>
+    <span class="car__meta-email"><%= car.seller.email %></span>
+  </div>
+  <div class="car__description">
+    <%= t("cars.description", condition: car.condition.titleize, price_with_currency: number_to_currency(car.price)) %>
+  </div>
+</div>

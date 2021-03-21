@@ -9,7 +9,13 @@ class Car < ApplicationRecord
   validates_inclusion_of :condition, in: :conditions
   validates_numericality_of :price, greater_than_or_equal_to: 1_000, less_than_or_equal_to: 100_000
 
+  scope :recent, -> { order(created_at: :desc) }
+
   enum condition: { poor: 0, fair: 1, good: 2, excellent: 3 }
+
+  def title
+    "#{make} #{model} (#{year})"
+  end
 
   private
 
