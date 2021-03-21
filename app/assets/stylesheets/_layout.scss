@@ -9,6 +9,19 @@ body {
   max-width: 750px;
 }
 
-.text-danger {
-  color: $color-danger;
+.text {
+  &-primary {
+    color: $color-primary;
+  }
+  &-danger {
+    color: $color-danger;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.no-border-bottom {
+  border-bottom: unset !important;
 }

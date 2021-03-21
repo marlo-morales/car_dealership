@@ -1,0 +1,5 @@
+<h2><%= t("cars.thank_you.create.intro", seller: @car.seller.name) %></h2>
+
+<h4><%= t("cars.thank_you.create.success", make: @car.make, model: @car.model, year: @car.year, condition: @car.condition.titleize, price_with_currency: number_to_currency(@car.price)) %></h4>
+
+<h3 class="text-danger"><%= t("cars.thank_you.create.take_note_html", id: @car.id) %></h3>

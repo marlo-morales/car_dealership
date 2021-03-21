@@ -34,14 +34,14 @@ RSpec.describe "Cars - List Car", type: :feature do
       click_button "Create Car"
 
       car = Car.last
-      expect(current_path).to eq cars_path
-      expect(page).to have_text I18n.t("cars.thank_you", seller_name: car.seller.name)
+      expect(page).to have_current_path thank_you_car_path(car)
+      expect(page).to have_text I18n.t("cars.thank_you.create.intro", seller: car.seller.name)
       expect(page).to have_text I18n.t(
-        "cars.submit_success",
+        "cars.thank_you.create.success",
         make: car.make, model: car.model, year: car.year,
         condition: car.condition.titleize, price_with_currency: app_helpers.number_to_currency(car.price)
       )
-      expect(page).to have_text app_helpers.strip_tags(I18n.t("cars.take_note_html", id: car.id))
+      expect(page).to have_text app_helpers.strip_tags(I18n.t("cars.thank_you.create.take_note_html", id: car.id))
     end
 
     scenario "Incomplete form" do
@@ -58,7 +58,7 @@ RSpec.describe "Cars - List Car", type: :feature do
       expect(current_path).to eq cars_path
       expect(page).to have_selector ".notification__alert"
       error = "* Model can't be blank"
-      expect(page).to have_text I18n.t("cars.save_failed", errors: error)
+      expect(page).to have_text I18n.t("cars.save.failed", errors: error)
     end
   end
 end

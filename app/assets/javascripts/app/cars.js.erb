@@ -24,9 +24,5 @@ function goToRootPath() {
 }
 
 $.addEventListener("DOMContentLoaded", function() {
-  var carForm = $.getElementById("car_form")
-
-  if (location.pathname == "/cars" && !carForm) {
-    setTimeout(goToRootPath, 10_000)
-  }
+  // if (location.pathname.indexOf("thank_you") !== -1) setTimeout(goToRootPath, 10_000)
 })

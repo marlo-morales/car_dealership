@@ -2,15 +2,35 @@
 
 class CarPolicy < ApplicationPolicy
   def create?
-    user.present? || super
+    user.present?
   end
 
   def update?
-    record.seller == user || super
+    owned? || super
+  end
+
+  def owned?
+    record.seller == user
   end
 
   def destroy?
-    update?
+    admin?
+  end
+
+  def buy?
+    admin? || !owned?
+  end
+
+  def sold?
+    buy?
+  end
+
+  def thank_you?
+    create? || owned? || record.seller.present?
+  end
+
+  def unsold?
+    admin?
   end
 
   class Scope < Scope

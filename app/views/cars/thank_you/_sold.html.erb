@@ -1,0 +1,10 @@
+<h2><%= t("cars.thank_you.sold.intro", buyer: @car.buyer.name) %></h2>
+
+<h4><%= t("cars.thank_you.sold.success", title: @car.title, price_with_currency: number_to_currency(@car.price)) %></h4>
+
+<h4 class="text-primary">
+  <i>
+    <%= t("cars.thank_you.sold.in_touch", admin: @admin.name) %>
+    <%= t("cars.thank_you.sold.take_note_html", id: @car.id) %>
+  </i>
+</h4>

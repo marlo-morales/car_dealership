@@ -9,15 +9,15 @@ class ApplicationPolicy
   end
 
   def index?
-    user&.admin? || false
+    false
   end
 
   def show?
-    user&.admin? || scope.where(:id => record.id).exists?
+    admin? || scope.where(id: record.id).exists?
   end
 
   def create?
-    user&.admin? || false
+    false
   end
 
   def new?
@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user&.admin? || false
+    admin?
   end
 
   def edit?
@@ -33,6 +33,10 @@ class ApplicationPolicy
   end
 
   def destroy?
+    admin?
+  end
+
+  def admin?
     user&.admin? || false
   end
 

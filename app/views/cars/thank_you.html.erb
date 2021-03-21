@@ -1,0 +1,3 @@
+<%= page_title(@car.sold? ? t("cars.thank_you.sold.text") : t("cars.thank_you.create.text")) %>
+
+<%= render partial: "cars/thank_you/#{@car.sold? ? "sold" : "create"}" %>
