@@ -12,8 +12,10 @@ def create_cars_for(user)
   Array.new(rand(10..50)) do |num|
     print "."
     make = Faker::Vehicle.make
+    model = Faker::Vehicle.model(make_of_model: make)
+    make = "Chevrolet" if make == "Chevy"
     user.cars.create(
-      make: make, model: Faker::Vehicle.model(make_of_model: make), year: Faker::Vehicle.year,
+      make: make, model: model, year: Faker::Vehicle.year,
       condition: Car.conditions.keys.sample,
       price: Faker::Commerce.price(range: 1_000..100_000)
     )
@@ -27,6 +29,7 @@ user1 = User.find_or_initialize_by(username: "mike@example.org").tap do |u|
   u.last_name = "Mike"
   u.password = "mikeymike123"
   u.mobile_number = Faker::PhoneNumber.unique.cell_phone_in_e164
+  u.admin = true
   u.save
 end
 

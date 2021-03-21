@@ -37,11 +37,17 @@ en:
     get_started: "To get started on selling cars, click List Car."
 
   login_required: "You need to login"
-  unauthorized: "You do not have correct permission"
+  unauthorized: "You're not authorize to access this page"
 
   date:
     formats:
       short: "%b %d"
+      long: "%B %d, %Y"
+
+  time:
+    formats:
+      long: "%B %d, %Y %H:%M:%S %p"
+    ago: "%{time} ago"
 
   cars:
     list: "List Car"
@@ -50,7 +56,7 @@ en:
     thank_you: "Thank you very much, %{seller_name}!"
     submit_success: "Your car \"%{make} %{model} %{year} (%{condition})\" with a price of %{price_with_currency} has been successfully submitted."
     take_note_html: "Please take note of your listing ID <u>%{id}</u> for future reference."
-    redirect_to_home: "You will be redirected to home page..."
+    redirect_to_home_html: "<i>You will be redirected to home page or <a href=\"/\">click here</a>...</i>"
     save_failed: "Listing your car failed because of the following: %{errors}"
     description: "This car is in %{condition} condition with a price of %{price_with_currency}"
     filter:
@@ -59,12 +65,13 @@ en:
       year: "Year"
       submit: "Submit"
       clear: "Clear"
+    edit:
+      text: "Edit"
+    delete:
+      text: "Delete"
+      confirm: "Do you really want to delete this car?"
+    save_success: "The car \"%{title}\" has been successfully %{action}!"
 
-  edit:
-    text: "Edit"
-  delete:
-    text: "Delete"
-    confirm: "Do you really want to delete?"
   cancel:
     text: "Cancel"
   login:
@@ -73,7 +80,7 @@ en:
       success: "You have successfully logged in"
       error: "Your username or password was invalid, try again"
     destroy:
-      success: "You have been logged out"
+      success: "You are now logged out"
   logout:
     text: "Logout"
 

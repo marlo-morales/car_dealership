@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   post "/login", to: "login#create"
   delete "/logout", to: "login#destroy"
 
-  resources :cars, except: :index
+  resources :cars, except: %i(index show)
 end
