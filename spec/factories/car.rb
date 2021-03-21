@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :car do
-    make { Faker::Vehicle.make }
+    make do
+      car_make = Faker::Vehicle.make
+      car_make = "Chevrolet" if car_make == "Chevy"
+      car_make
+    end
     model { Faker::Vehicle.model }
     year { Faker::Vehicle.year }
     condition { Car.conditions.keys.sample }

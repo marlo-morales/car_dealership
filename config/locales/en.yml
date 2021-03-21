@@ -50,7 +50,7 @@ en:
     thank_you: "Thank you very much, %{seller_name}!"
     submit_success: "Your car \"%{make} %{model} %{year} (%{condition})\" with a price of %{price_with_currency} has been successfully submitted."
     take_note_html: "Please take note of your listing ID <u>%{id}</u> for future reference."
-    redirect_to_home: "You will be redirected to home page..."
+    redirect_to_home_html: "<i>You will be redirected to home page or <a href=\"/\">click here</a>...</i>"
     save_failed: "Listing your car failed because of the following: %{errors}"
     description: "This car is in %{condition} condition with a price of %{price_with_currency}"
     filter:
@@ -59,12 +59,12 @@ en:
       year: "Year"
       submit: "Submit"
       clear: "Clear"
+    edit:
+      text: "Edit"
+    delete:
+      text: "Delete"
+      confirm: "Do you really want to delete this car?"
 
-  edit:
-    text: "Edit"
-  delete:
-    text: "Delete"
-    confirm: "Do you really want to delete?"
   cancel:
     text: "Cancel"
   login:
@@ -73,7 +73,7 @@ en:
       success: "You have successfully logged in"
       error: "Your username or password was invalid, try again"
     destroy:
-      success: "You have been logged out"
+      success: "You are now logged out"
   logout:
     text: "Logout"
 

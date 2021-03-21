@@ -7,8 +7,8 @@
   <h3><%= link_to(t("cars.list"), new_car_path, class: "form__button form__button--main form__button--xl") %></h3>
 </center>
 
-<%= render "cars/filters" %>
+<%= render partial: "cars/filters" %>
 
 <%= render @cars %>
 
-<%= render "cars/pagination" %>
+<%= render partial: "cars/pagination", locals: { objects: @cars } %>

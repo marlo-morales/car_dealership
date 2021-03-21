@@ -11,6 +11,7 @@
     <span class="car__meta-email"><%= car.seller.email %></span>
   </div>
   <div class="car__description">
+    <%= render partial: "cars/actions", locals: { object: car } %>
     <%= t("cars.description", condition: car.condition.titleize, price_with_currency: number_to_currency(car.price)) %>
   </div>
 </div>

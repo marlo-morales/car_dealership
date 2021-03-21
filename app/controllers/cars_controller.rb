@@ -1,6 +1,8 @@
 class CarsController < ApplicationController
   include ErrorsHelper
 
+  before_action :fetch_car, :authorize_car, only: %i(edit update destroy)
+
   def index
     cars = Car.recent.includes(:seller)
     @cars = Kaminari.paginate_array(filter(cars)).page(params[:page]).per(10)
@@ -8,16 +10,30 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    if current_user
+      assign_seller!
+      authorize_car
+    end
   end
 
   def create
     @car = Car.new(permitted_params.except(:seller))
     assign_seller!
+    authorize_car if current_user
     unless @car.save
       flash.now[:alert] = t("cars.save_failed", errors: format_flash_errors(@car.errors.full_messages))
       render :new
       return
     end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
@@ -32,6 +48,8 @@ class CarsController < ApplicationController
   end
 
   def assign_seller!
+    return @car.seller = current_user if current_user
+
     @car.seller = User.find_or_build_by(permitted_params[:seller])
   end
 
@@ -39,5 +57,13 @@ class CarsController < ApplicationController
     cars = cars.where("LOWER(make) = ?", params[:make]&.downcase) if params[:make].present?
     cars = cars.where(year: params[:year]) if params[:year].present?
     cars
+  end
+
+  def fetch_car
+    @car = Car.find(params[:id])
+  end
+
+  def authorize_car
+    authorize @car, "#{action_name}?"
   end
 end
