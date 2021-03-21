@@ -1,6 +1,6 @@
 <div class="car <%= "car--border" if action_name == "index" %>">
   <h3 class="car__title">
-    <span class="car__meta-created"><%= l(car.created_at.to_date, format: :long) %></span>
+    <span class="car__meta-created" title="<%= l(car.created_at, format: :long) %>"><%= t("time.ago", time: time_ago_in_words(car.created_at)) %></span>
     <%= car.title %>
   </h2>
   <div class="car__meta">

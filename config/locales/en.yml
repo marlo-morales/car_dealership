@@ -37,11 +37,17 @@ en:
     get_started: "To get started on selling cars, click List Car."
 
   login_required: "You need to login"
-  unauthorized: "You do not have correct permission"
+  unauthorized: "You're not authorize to access this page"
 
   date:
     formats:
       short: "%b %d"
+      long: "%B %d, %Y"
+
+  time:
+    formats:
+      long: "%B %d, %Y %H:%M:%S %p"
+    ago: "%{time} ago"
 
   cars:
     list: "List Car"
@@ -64,6 +70,7 @@ en:
     delete:
       text: "Delete"
       confirm: "Do you really want to delete this car?"
+    save_success: "The car \"%{title}\" has been successfully %{action}!"
 
   cancel:
     text: "Cancel"

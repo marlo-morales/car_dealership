@@ -4,6 +4,6 @@
   <% end %>
   <% if policy(object).destroy? %>
     <span class="car__meta-divider"></span>
-    <span><%= link_to t("cars.delete.text"), car_path(object), data: { confirm: t("cars.delete.confirm") } %></span>
+    <span><%= link_to t("cars.delete.text"), car_path(object), data: { method: :delete, confirm: t("cars.delete.confirm") } %></span>
   <% end %>
 </div>

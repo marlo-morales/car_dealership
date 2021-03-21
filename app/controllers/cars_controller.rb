@@ -27,13 +27,21 @@ class CarsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    if @car.update(permitted_params.except(:seller))
+      redirect_to root_path, notice: t("cars.save_success", title: @car.title, action: :updated)
+    else
+      flash.now[:alert] = t("cars.save_failed", errors: format_flash_errors(@car.errors.full_messages))
+      render :edit
+    end
   end
 
   def destroy
+    title = @car.title
+    @car.destroy
+    redirect_to request.referrer || root_path, notice: t("cars.save_success", title: title, action: :deleted)
   end
 
   private
