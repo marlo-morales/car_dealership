@@ -24,7 +24,7 @@
     </div>
   <% end %>
   <div class="form__actions">
-    <%= form.submit value: t("cars.buy.text").titleize, class: "form__button form__button--primary" unless @car.sold? %>
+    <%= form.submit value: t("cars.buy.text").titleize, class: "form__button form__button--primary", data: { disable_with: t("cars.buying.text") + "..." } unless @car.sold? %>
     <%= link_to t("cancel.text"), request.referrer || root_path, class: "form__button form__button--secondary" %>
   </div>
 <% end %>

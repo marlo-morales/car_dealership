@@ -2,9 +2,4 @@
 
 <h4><%= t("cars.thank_you.sold.success", title: @car.title, price_with_currency: number_to_currency(@car.price)) %></h4>
 
-<h4 class="text-primary">
-  <i>
-    <%= t("cars.thank_you.sold.in_touch", admin: @admin.name) %>
-    <%= t("cars.thank_you.sold.take_note_html", id: @car.id) %>
-  </i>
-</h4>
+<h4 class="text-primary"><%= t("cars.thank_you.sold.in_touch_html", admin: @admin.name, id: @car.id) %></h4>

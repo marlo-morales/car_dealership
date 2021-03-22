@@ -45,10 +45,7 @@ RSpec.describe "Cars - Buy Car", type: :feature do
         title: car.title, price_with_currency: app_helpers.number_to_currency(car.price)
       )
       expect(page).to have_text(
-        app_helpers.strip_tags(
-          I18n.t("cars.thank_you.sold.in_touch", admin: admin.name) +
-          I18n.t("cars.thank_you.sold.take_note_html", id: car.id)
-        )
+        app_helpers.strip_tags(I18n.t("cars.thank_you.sold.in_touch_html", admin: admin.name, id: car.id))
       )
       visit root_path
       expect(first(".car-form ~ .car")).to have_text I18n.t("cars.sold.text")

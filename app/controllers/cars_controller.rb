@@ -30,7 +30,7 @@ class CarsController < ApplicationController
 
   def update
     if @car.update(permitted_params.except(:seller))
-      redirect_to root_path, notice: t("cars.save.success", title: @car.title, action: :updated)
+      redirect_to root_path, notice: t("cars.save.success", title: @car.title, action: t("cars.updated.text"))
     else
       flash.now[:alert] = t("cars.save.failed", errors: format_flash_errors(@car.errors.full_messages))
       render :edit
@@ -40,7 +40,7 @@ class CarsController < ApplicationController
   def destroy
     title = @car.title
     @car.destroy
-    redirect_to request.referrer || root_path, notice: t("cars.save.success", title: title, action: :deleted)
+    redirect_to safe_return_path, notice: t("cars.save.success", title: title, action: t("cars.deleted.text"))
   end
 
   def buy; end
@@ -56,6 +56,10 @@ class CarsController < ApplicationController
   end
 
   def unsold
+    if @car.sold?
+      flash[:notice] = t("cars.save.success", title: @car.title, action: t("cars.unsold.made")) if @car.make_available
+    end
+    redirect_to safe_return_path
   end
 
   def thank_you
@@ -93,8 +97,7 @@ class CarsController < ApplicationController
     @car.seller = User.find_or_build_by(permitted_params[:seller])
   end
 
-  def assign_buyer!(unset: false)
-    return @car.buyer_id = nil if unset
+  def assign_buyer!
     return @car.buyer = current_user if current_user
 
     @car.validate_buyer = true
@@ -106,5 +109,9 @@ class CarsController < ApplicationController
     cars = cars.where(year: params[:year]) if params[:year].present?
     cars = cars.where(seller_id: current_user.id) if params[:owned] == "1"
     cars
+  end
+
+  def safe_return_path
+    request.referrer || root_path
   end
 end

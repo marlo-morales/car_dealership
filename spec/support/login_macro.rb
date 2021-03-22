@@ -1,11 +1,8 @@
 module LoginMacro
-  def login_as(user)
+  def login_as(username, password)
     visit login_path
-    fill_in "username", with: user.username
-    fill_in "password", with: "Password123"
+    fill_in "username", with: username
+    fill_in "password", with: password
     click_button "Login"
-
-    expect(current_path).to eq(root_path)
-    expect(page).to have_selector(".notification__notice", text: I18n.t("login.create.success"))
   end
 end

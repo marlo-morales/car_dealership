@@ -38,6 +38,12 @@ class Car < ApplicationRecord
     sent_sold_email_at.present?
   end
 
+  def make_available
+    self.buyer_id = nil
+    self.sent_sold_email_at = nil
+    save
+  end
+
   private
 
   def conditions

@@ -71,8 +71,7 @@ en:
         text: "Sold"
         intro: "We are really grateful for you, %{buyer}!"
         success: "The car \"%{title}\" with a price of %{price_with_currency} has been successfully sold to you."
-        in_touch: "I, %{admin}, will be in touch with you to further discuss the details of the sold car. "
-        take_note_html: "<br/>For reference, kindly take note of the sold car's listing ID <u>%{id}</u>. Thank you!"
+        in_touch_html: "<i>Our administrator, %{admin}, will be in touch with you to further discuss the details of this transaction. For reference, kindly take note of the sold car's listing ID <u>%{id}</u>. Thank you!</i>"
     save:
       failed: "Listing your car failed because of the following: %{errors}"
       success: "The car \"%{title}\" has been successfully %{action}!"
@@ -90,15 +89,23 @@ en:
     delete:
       text: "Delete"
       confirm: "Do you really want to delete this car?"
+    updated:
+      text: "Updated"
+    deleted:
+      text: "Deleted"
     buy:
       text: "BUY"
       page_title: "%{site_name} - Buy Car"
       failed: "Buying car failed because: %{errors}"
+    buying:
+      text: "Buying"
     sold:
       text: "SOLD"
       time: "Sold %{date_time}"
     unsold:
       text: "Make Available"
+      made: "made available"
+      confirm: "Do you really want to make this car available?"
 
     mailer:
       send_sold_email:
