@@ -1,0 +1,11 @@
+<% unless action_name == "buy" %>
+  <div class="car__actions">
+    <% if object.sold? %>
+      <span><%= link_to t("cars.unsold.text"), unsold_car_path(object), class: "form__button form__button--danger form__button--sm", data: { method: :post, confirm: t("cars.unsold.confirm") } if current_user&.admin? %></span>
+    <% elsif policy(object).buy? %>
+      <span><%= link_to t("cars.buy.text"), buy_car_path(object), class: "form__button form__button--main form__button--sm" %></span>
+    <% end %>
+    <span><%= link_to t("cars.edit.text"), edit_car_path(object), class: "form__button form__button--primary form__button--sm" if policy(object).update? && !object.sold? %></span>
+    <span><%= link_to t("cars.delete.text"), car_path(object), class: "form__button form__button--danger form__button--sm", data: { method: :delete, confirm: t("cars.delete.confirm") } if policy(object).destroy? %></span>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<div class="car car--border">
+  <div class="car__sold"><span class="car__sold--text"><%= t("cars.mailer.send_sold_email.sold") %></span></div>
+  <h3 class="car__title">
+    <span class="car__meta-created">
+      <%= t("cars.mailer.send_sold_email.sold_on", date_time: l(@car.updated_at, format: :long)) %><br/>
+      <%= t("cars.mailer.send_sold_email.listed", date_time: l(@car.created_at, format: :long)) %>
+    </span>
+    <%= @car.title %> - <%= t("cars.mailer.send_sold_email.condition", condition: @car.condition.titleize) %>
+  </h3>
+  <div class="car__meta car--seller">
+    <span><%= t("cars.mailer.send_sold_email.seller") %>: </span>
+    <span class="car__meta-seller"><%= @car.seller.name %></span>
+    <span class="car__meta-divider"></span>
+    <span class="car__meta-mobile-number"><%= @car.seller.mobile_number %></span>
+    <span class="car__meta-divider"></span>
+    <span class="car__meta-email"><%= @car.seller.email %></span>
+  </div>
+  <div class="car__meta car--buyer">
+    <span><%= t("cars.mailer.send_sold_email.buyer") %>: </span>
+    <span class="car__meta-seller"><%= @car.buyer.name %></span>
+    <span class="car__meta-divider"></span>
+    <span><%= @car.buyer.mobile_number %></span>
+    <span class="car__meta-divider"></span>
+    <span><%= @car.buyer.email %></span>
+  </div>
+  <table class="car__computation">
+    <tr>
+      <th><%= t("cars.mailer.send_sold_email.price") %></th><td><%= number_to_currency(@car.price) %></td>
+    <tr>
+    <tr>
+      <th><%= t("site.name") %> <%= t("cars.mailer.send_sold_email.commission", percent: (Car::COMMISSION_PERCENT * 100).to_i) %></th><td><%= number_to_currency(@car.commission) %></td>
+    <tr>
+    <tr>
+      <th><%= t("cars.mailer.send_sold_email.net_amount") %></th><td><%= number_to_currency(@car.net_amount) %></td>
+    <tr>
+  </table>
+</div>

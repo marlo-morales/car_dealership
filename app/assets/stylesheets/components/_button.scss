@@ -1,5 +1,5 @@
 .form__button {
-  color: rgba(0, 0, 0, 0.482353);
+  color: $color-secondary;
   font-size: 16px;
   padding: 0 14px;
   line-height: 34px;
@@ -9,20 +9,37 @@
   display: inline-block;
   text-decoration: none;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  cursor: pointer;
 
   &--primary {
     color: $color-primary;
     border: 1px solid $color-primary;
   }
 
-  &--warning {
-    color: $color-warning;
-    border: 1px solid $color-warning;
+  &--secondary {
+    border: 1px solid $color-secondary;
+  }
+
+  &--main {
+    color: $color-main;
+    border: 1px solid $color-main;
   }
 
   &--danger {
     color: $color-danger;
     border: 1px solid $color-danger;
+  }
+
+  &--xs {
+    font-size: 13px;
+    height: 20px;
+    line-height: 18px;
+  }
+
+  &--sm {
+    font-size: 14.5px;
+    height: 30px;
+    line-height: 30px;
   }
 
   &--lg {

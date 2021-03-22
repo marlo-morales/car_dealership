@@ -1,0 +1,8 @@
+<%= form_with(url: root_path, method: :get, local: true, class: "car-form") do %>
+  <span class="car__meta"><%= t("cars.filter.by") %></span>
+  <span class="car__meta"><%= filters_make_select(selected: params[:make]) %></span>
+  <span class="car__meta"><%= filters_year_select(selected: params[:year]) %></span>
+  <span class="car__meta"><%= check_box_tag :owned, 1, params[:owned] == "1", title: t("cars.filter.owned") if current_user %></span>
+  <span class="car__meta"><%= button_tag t("cars.filter.submit"), name: nil, id: :submit_filter, class: "form__button form__button--primary form__button--xs" %></span>
+  <span class="car__meta"><%= link_to t("cars.filter.clear"), root_path, id: :clear_filter, class: "form__button form__button--secondary form__button--xs" %></span>
+<% end %>

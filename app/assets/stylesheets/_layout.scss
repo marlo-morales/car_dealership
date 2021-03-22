@@ -5,18 +5,23 @@ body {
 }
 
 .container {
-  margin: 50px auto 0;
-  max-width: 700px;
+  margin: 20px auto 0;
+  max-width: 750px;
 }
 
-.text-danger {
-  color: $color-danger;
+.text {
+  &-primary {
+    color: $color-primary;
+  }
+  &-danger {
+    color: $color-danger;
+  }
 }
 
-.center {
-  text-align: center;
+.hide {
+  display: none;
 }
 
-.margin-top-10 {
-  margin-top: 10px;
+.no-border-bottom {
+  border-bottom: unset !important;
 }

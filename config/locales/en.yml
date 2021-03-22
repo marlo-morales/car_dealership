@@ -32,31 +32,94 @@
 en:
   site:
     name: "Dodgy Brothers"
-    welcome: "Welcome to Dodgy Brothers Online Cars!"
-    get_started: "To get started on selling cars, click the button below."
+    welcome: "Welcome to Dodgy Brothers Car Dealership!"
+    recent_cars: "Checkout our most recent cars below..."
+    get_started: "To get started on selling cars, click List Car."
 
   login_required: "You need to login"
-  unauthorized: "You do not have correct permission"
+  unauthorized: "You are not authorize to access this page"
 
   date:
     formats:
       short: "%b %d"
+      long: "%B %d, %Y"
+
+  time:
+    formats:
+      long: "%B %d, %Y %H:%M:%S %p"
+    ago: "%{time} ago"
 
   cars:
+    index:
+      page_title: "%{site_name} Car Dealership"
+    new:
+      page_title: "%{site_name} - List a Car"
     list: "List Car"
     select_year: "Select Year"
     select_condition: "Select Condition"
-    thank_you: "Thank you very much, %{seller_name}!"
-    submit_success: "Your car \"%{make} %{model} %{year} (%{condition})\" with a price of %{price_with_currency} has been successfully submitted."
-    take_note_html: "Please take note of your listing ID <u>%{id}</u> for future reference."
-    redirect_to_home: "You will be redirected to home page..."
-    save_failed: "Listing your car failed because of the following: %{errors}"
+    description: "This car is in %{condition} condition with a price of %{price_with_currency}"
+    listed: "Listed %{date_time}"
 
-  edit:
-    text: "Edit"
-  delete:
-    text: "Delete"
-    confirm: "Do you really want to delete?"
+    thank_you:
+      page_title: "%{site_name} - %{prefix} Car"
+      create:
+        text: "Listed"
+        intro: "Thank you very much, %{seller}!"
+        success: "Your car \"%{make} %{model} %{year} (%{condition})\" with a price of %{price_with_currency} has been successfully listed."
+        take_note_html: "Please take note of your listing ID <u>%{id}</u> for future reference."
+      sold:
+        text: "Sold"
+        intro: "We are really grateful for you, %{buyer}!"
+        success: "The car \"%{title}\" with a price of %{price_with_currency} has been successfully sold to you."
+        in_touch_html: "<i>Our administrator, %{admin}, will be in touch with you to further discuss the details of this transaction. For reference, kindly take note of the sold car's listing ID <u>%{id}</u>. Thank you!</i>"
+    save:
+      failed: "Listing your car failed because of the following: %{errors}"
+      success: "The car \"%{title}\" has been successfully %{action}!"
+
+    filter:
+      by: "Filter by"
+      make: "Make"
+      year: "Year"
+      owned: "Only Show Owned Cars"
+      submit: "Submit"
+      clear: "Clear"
+    edit:
+      text: "Edit"
+      page_title: "%{site_name} - Change Car Details"
+    delete:
+      text: "Delete"
+      confirm: "Do you really want to delete this car?"
+    updated:
+      text: "Updated"
+    deleted:
+      text: "Deleted"
+    buy:
+      text: "BUY"
+      page_title: "%{site_name} - Buy Car"
+      failed: "Buying car failed because: %{errors}"
+    buying:
+      text: "Buying"
+    sold:
+      text: "SOLD"
+      time: "Sold %{date_time}"
+    unsold:
+      text: "Make Available"
+      made: "made available"
+      confirm: "Do you really want to make this car available?"
+
+    mailer:
+      send_sold_email:
+        subject: "[SOLD] %{title} to %{buyer}"
+        sold: "SOLD"
+        condition: "%{condition} condition"
+        listed: "Listed on %{date_time}"
+        sold_on: "Sold on %{date_time}"
+        seller: "Seller"
+        buyer: "Interested Party"
+        price: "Price"
+        commission: "Commission (%{percent}%)"
+        net_amount: "Amount Transferrable to Seller"
+
   cancel:
     text: "Cancel"
   login:
@@ -65,7 +128,7 @@ en:
       success: "You have successfully logged in"
       error: "Your username or password was invalid, try again"
     destroy:
-      success: "You have been logged out"
+      success: "You are now logged out"
   logout:
     text: "Logout"
 
@@ -73,8 +136,15 @@ en:
     attributes:
       car:
         seller: "Seller information"
+        buyer: "Buyer information"
 
   activerecord:
     errors:
       messages:
-        taken: "must be unique base on Make, Year, Condition, and Price"
+        car_model_taken: "must be unique base on Make, Year, Condition, and Price"
+
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No results found for your filter"

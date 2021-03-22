@@ -1,4 +1,6 @@
 .car {
+  position: relative;
+
   &.car--border {
     -webkit-box-shadow: rgba(0, 0, 0, 0.0392157) 0px 1px 4px 0px;
     box-shadow: rgba(0, 0, 0, 0.0392157) 0px 1px 4px 0px;
@@ -6,27 +8,26 @@
     border-style: solid;
     border-radius: 3px;
     margin-top: 20px;
-    padding: 20px 20px 40px;
+    padding: 20px 20px 15px;
     border-width: 1px;
   }
 
-  &.car--border &__title > a:hover,
-  &.car--border &__body,
-  &.car--border &__continue {
-    cursor: pointer;
-  }
-
-  &__meta-author, &__meta-published, &__meta-comments, &__continue {
-    color: rgba(0, 0, 0, 0.482353);
+  &__meta, &__meta-created, &__continue, &__actions {
+    color: $color-secondary;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 13px;
     line-height: 21px;
     text-decoration: none;
   }
 
-  &__meta-author {
+  &__meta-seller {
     color: $color-primary;
-    display: block;
+  }
+
+  &__meta-created {
+    float: right;
+    font-size: 11px;
+    text-align: right;
   }
 
   &__meta-divider {
@@ -45,18 +46,18 @@
 
   &__title {
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    margin-top: 0;
 
     & > a {
       text-decoration: none;
       color: rgba(0, 0, 0, 0.843137);
       font-size: 30px;
       line-height: 31px;
-      padding-top: 5px;
       display: block;
     }
   }
 
-  &__body {
+  &__description {
     color: rgba(0, 0, 0, 0.843137);
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 18px;
@@ -78,8 +79,30 @@
     }
   }
 
+  &__computation {
+    font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    td, th {
+      border: 1px solid #DDD;
+      padding: 8px;
+      text-align: right;
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+    }
+    tr:hover {
+      background-color: #4CAF50;
+      color: #FFF;
+    }
+  }
+
   &__continue {
-    color: rgba(0, 0, 0, 0.482353);
+    color: $color-secondary;
     display: block;
     text-decoration: none;
     margin-top: 10px;
@@ -90,6 +113,73 @@
       transition-duration: 0.2s;
       transition-property: color;
       transition-timing-function: ease;
+    }
+  }
+
+  &__actions {
+    font-size: 14px;
+    float: right;
+  }
+
+  &__buy--form {
+    border-top: unset !important;
+    margin-top: 0 !important;
+    padding-top: 35px !important;
+  }
+  
+  &__sold {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: -1;
+
+    &--text {
+      left: 15px;
+      top: 15px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      display: block;
+      width: 210px;
+      padding: 5px 0;
+      background-color: $color-danger;
+      box-shadow: 0 3px 1px rgba(0, 0, 0, 0.192);
+      color: #fff;
+      text-shadow: 0 2px 2px rgba(0,0,0,.2);
+      text-transform: uppercase;
+      text-align: center;
+      border: 1px dotted #fff;
+      outline: 3px solid $color-danger;
+      font-weight: 500;
+    }
+
+    &::before {
+      top: 0;
+      left: 64px;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid $color-danger;
+      box-sizing: content-box;
+    }
+
+    &::after {
+      bottom: 64px;
+      right: 0;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid $color-danger;
     }
   }
 }

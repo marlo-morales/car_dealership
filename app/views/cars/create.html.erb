@@ -1,7 +1,0 @@
-<h2><%= t("cars.thank_you", seller_name: @car.seller.name) %></h2>
-
-<h4><%= t("cars.submit_success", make: @car.make, model: @car.model, year: @car.year, condition: @car.condition.titleize, price_with_currency: number_to_currency(@car.price)) %></h4>
-
-<h3 class="text-danger"><%= t("cars.take_note_html", id: @car.id) %></h3>
-
-<h5><i><%= t("cars.redirect_to_home") %></i></h5>

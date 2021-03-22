@@ -1,0 +1,30 @@
+<%= page_title %>
+
+<%= render @car, no_border_bottom: true %>
+
+<%= form_with(model: @car, url: sold_car_path(@car), method: :post, local: true, id: :buy_car_form, class: "car car--border car__buy--form") do |form| %>
+  <% if @car&.buyer&.errors.present? || (!@car.buyer && !current_user) %>
+    <div class="form__field <%= field_with_errors(@car&.buyer&.errors, :username) %>">
+      <%= form.email_field nil, name: "car[buyer][email]", value: @car&.buyer&.username, id: :car_buyer_email, class: "form__control", autofocus: true %>
+      <span class="form__highlight"></span>
+      <span class="form__bar"></span>
+      <%= form.label :email, class: "form__label" %>
+    </div>
+    <div class="form__field <%= field_with_errors(@car&.buyer&.errors, :first_name) %>">
+      <%= form.text_field nil, name: "car[buyer][name]", value: @car&.buyer&.name, class: "form__control", required: true %>
+      <span class="form__highlight"></span>
+      <span class="form__bar"></span>
+      <%= form.label :name, class: "form__label" %>
+    </div>
+    <div class="form__field <%= field_with_errors(@car&.buyer&.errors, :mobile_number) %>">
+      <%= form.phone_field nil, name: "car[buyer][mobile_number]", value: @car&.buyer&.mobile_number, class: "form__control", required: true %>
+      <span class="form__highlight"></span>
+      <span class="form__bar"></span>
+      <%= form.label :mobile_number, class: "form__label" %>
+    </div>
+  <% end %>
+  <div class="form__actions">
+    <%= form.submit value: t("cars.buy.text").titleize, class: "form__button form__button--primary", data: { disable_with: t("cars.buying.text") + "..." } unless @car.sold? %>
+    <%= link_to t("cancel.text"), request.referrer || root_path, class: "form__button form__button--secondary" %>
+  </div>
+<% end %>

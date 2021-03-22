@@ -1,0 +1,21 @@
+<div class="car car--border<%= " no-border-bottom" if local_assigns[:no_border_bottom] %>">
+  <div class="car__sold<%= " hide" unless car.sold? %>"><span class="car__sold--text"><%= t("cars.sold.text") %></span></div>
+  <h3 class="car__title">
+    <span class="car__meta-created">
+      <span class="<%= "hide" unless car.sold? %>" title="<%= t("cars.sold.time", date_time: l(car.updated_at, format: :long)) %>"><%= t("cars.sold.time", date_time: t("time.ago", time: time_ago_in_words(car.updated_at))) %><br/></span>
+      <span title="<%= t("cars.listed", date_time: l(car.created_at, format: :long)) %>"><%= t("cars.listed", date_time: t("time.ago", time: time_ago_in_words(car.created_at))) %></span>
+    </span>
+    <%= car.title %>
+  </h3>
+  <div class="car__meta">
+    <span class="car__meta-seller"><%= car.seller.name %></span>
+    <span class="car__meta-divider"></span>
+    <span class="car__meta-mobile-number"><%= car.seller.mobile_number %></span>
+    <span class="car__meta-divider"></span>
+    <span class="car__meta-email"><%= car.seller.email %></span>
+  </div>
+  <div class="car__description">
+    <%= render partial: "cars/actions", locals: { object: car } %>
+    <%= t("cars.description", condition: car.condition.titleize, price_with_currency: number_to_currency(car.price)) %>
+  </div>
+</div>

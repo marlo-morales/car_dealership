@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -11,7 +13,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    admin? || scope.where(id: record.id).exists?
   end
 
   def create?
@@ -23,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    admin?
   end
 
   def edit?
@@ -31,11 +33,15 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    admin?
+  end
+
+  def admin?
+    user&.admin? || false
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    Pundit.policy_scope!(user, record)
   end
 
   class Scope

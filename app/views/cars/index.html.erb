@@ -1,6 +1,16 @@
-<div class="car car--border center">
-  <h1><%= t("site.welcome") %></h1>
-  <h3><i><%= t("site.get_started") %></i></h3>
+<%= page_title %>
 
-  <%= link_to(t("cars.list"), new_car_path, class: "form__button form__button--warning form__button--xl margin-top-10") %>
-</div>
+<center class="car car--border">
+  <h1><%= t("site.welcome") %></h1>
+  <i>
+    <h2><%= t("site.recent_cars") %></h2>
+    <h3><%= t("site.get_started") %></h3>
+  </i>
+  <h3><%= link_to(t("cars.list"), new_car_path, class: "form__button form__button--main form__button--xl") %></h3>
+</center>
+
+<%= render partial: "cars/filters" %>
+
+<%= render @cars %>
+
+<%= render partial: "cars/pagination", locals: { objects: @cars } %>

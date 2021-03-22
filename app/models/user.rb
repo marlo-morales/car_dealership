@@ -3,10 +3,13 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :cars, foreign_key: :seller_id
+  has_many :cars, foreign_key: :seller_id, dependent: :destroy
+  has_many :bought_cars, class_name: "Car", foreign_key: :buyer_id, dependent: :nullify
 
   validates_presence_of :username, :first_name, :mobile_number
   validates_uniqueness_of :username, scope: %i(first_name last_name)
+
+  alias_attribute :email, :username
 
   def name
     "#{first_name} #{last_name}"
