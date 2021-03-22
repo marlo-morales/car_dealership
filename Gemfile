@@ -37,3 +37,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "kaminari"
 gem "faker"
+gem "rubocop", "~> 1.11", require: false
